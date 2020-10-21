@@ -1,3 +1,21 @@
 body {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin: 0;
+}
+
+canvas {
+    display: block;
+    margin: 20px auto;
+    border: 1px solid black;
+    border-radius: 15px;
+
+}
+
+.canvas-container {
+    width: 100vw;
+    border: 1px solid red;
+}
+
+#userText {
+    padding: 10px;
 }

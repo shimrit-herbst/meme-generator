@@ -1,8 +1,10 @@
 'use strict'
 
-gImages = [{
+var gImages = [{
     id: 1,
-    url,
+    url: './imgs/1.jpg',
     // keywords: ['happy'],
 }];
+
+
 
