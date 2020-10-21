@@ -1,18 +1,16 @@
 'use strict'
 
-var gCanvas;
-var gCtx;
-var gCurrMemeId = 1;
+var gCanvas = document.querySelector('#my-canvas');
+var gCtx = gCanvas.getContext('2d');
+
 
 function onInit() {
-    // init();
-    gCanvas = document.querySelector('#my-canvas');
-    gCtx = gCanvas.getContext('2d');
-    // console.log('The context:', gCtx);
-    renderCanvas(gCurrMemeId);
+    renderGallery();
+    renderCanvas(getCurrMemeId());
 }
 
 function renderCanvas(memeId) {
+    if (!memeId) return;
     var meme = getMemeById(memeId);
     drawMeme(meme);
 }
@@ -42,4 +40,21 @@ function onUserTextInput(txtInput) {
     var meme = getMemeById(gCurrMemeId);
     meme.lines[0].txt = txtInput;
     renderCanvas(gCurrMemeId);
+}
+
+/** GALLERY **/
+
+function renderGallery() {
+    var images = getImages();
+    var strHtmls = images.map((image) => {
+        return `
+       <img class="img" src="./imgs/${image.id}.jpg" onclick="onSelectImage(${image.id})">`;
+    });
+    document.querySelector('.images-container').innerHTML = strHtmls.join('');
+}
+
+function onSelectImage(imageId) {
+    updateMemeSelectedImg(imageId);
+    var memeId = getCurrMemeId();
+    renderCanvas(memeId);
 }

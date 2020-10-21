@@ -1,41 +1,15 @@
 'use strict'
 
 // var gKeywords = { 'happy': 12, 'funny puk': 1 };
-var gNextId = 1;
-var gImgs = [
-    { id: 1, url: './imgs/1.jpg', keywords: ['happy'] }
-];
-var gMemes = [
-    {
-        id: 1,
-        selectedImgId: 1,
-        selectedLineIdx: 0,
-        lines: [
-            {
-                txt: 'bla',
-                size: 20,
-                align: 'center',
-                strokeColor: 'red',
-                fillColor: 'white',
-            },
-            {
-                txt: 'blaaaaaa',
-                size: 20,
-                align: 'center',
-                strokeColor: 'red',
-                fillColor: 'white',
-            }
-        ]
-    }
-];
+var gMemeNextId = 1;
+var gCurrMemeId = 1;
+var gImgs = getImages();
+var gMemes = [_createMeme('bla', 1)];
 
 
-function init() {
+function getCurrMemeId() {
+    return gCurrMemeId;
 }
-
-// function getMemes() {
-//     return gMemes;
-// }
 
 function getMemeById(memeId) {
     var meme = gMemes.find((meme) => { return memeId === meme.id });
@@ -54,9 +28,14 @@ function addMeme(txt, imgId) {
     // _saveMemesToStorage();
 }
 
+function updateMemeSelectedImg(imgId) {
+    var meme = getMemeById(gCurrMemeId);
+    meme.selectedImgId = imgId;
+}
+
 function _createMeme(txt, imgId) {
     return {
-        id: gNextId++,
+        id: gMemeNextId++,
         selectedImgId: imgId,
         selectedLineIdx: 0,
         lines: [
