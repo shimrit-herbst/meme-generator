@@ -4,30 +4,34 @@
 var gMemeNextId = 1;
 var gCurrMemeId = 1; // TODO current meme probably should not be served from gMemes
 var gImgs = getImages();
-var gMemes = [_createMeme('Your text', 1)]; // TODO gMemes shold include only saved memes
+var gMemes = [_createMeme('', 1)]; // TODO gMemes shold include only saved memes
+
+function switchSelectedLine() {
+    var meme = getMemeById(gCurrMemeId);
+    meme.selectedLineIdx += 1;
+    if (meme.selectedLineIdx === meme.lines.length)
+        meme.selectedLineIdx = 0;
+}
+
 
 function changeFontSize(val) {
     var meme = getMemeById(gCurrMemeId);
-    meme.lines[0].fontSize += val;
-    return meme.lines[0].fontSize;
+    meme.lines[meme.selectedLineIdx].fontSize += val;
+    return meme.lines[meme.selectedLineIdx].fontSize;
 }
 
 function changeTextPosY(val) {
     var meme = getMemeById(gCurrMemeId);
-    meme.lines[0].posY += val;
-    return meme.lines[0].posY;
+    meme.lines[meme.selectedLineIdx].posY += val;
+    return meme.lines[meme.selectedLineIdx].posY;
 }
 
 function getCurrMemeId() {
     return gCurrMemeId;
 }
 
-function getMemeLinePosX() {
-    return meme.lines[0].posX;
-}
-
 function getMemeLinePosY() {
-    return meme.lines[0].posY;
+    return meme.lines[meme.selectedLineIdx].posY;
 }
 
 function getMemeById(memeId) {
@@ -64,6 +68,15 @@ function _createMeme(text, imgId) {
                 fillColor: 'white',
                 posX: 250,
                 posY: 50,
+            },
+            {
+                text,
+                fontSize: 48,
+                align: 'center',
+                strokeColor: 'red',
+                fillColor: 'white',
+                posX: 250,
+                posY: 450,
             }
         ]
     }

@@ -20,7 +20,9 @@ function drawMeme(meme) {
     img.src = getImgById(meme.selectedImgId).url;
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
-        drawText(meme.lines[0]);
+        meme.lines.forEach(line => {
+            drawText(line);
+        });
     }
 }
 
@@ -30,13 +32,15 @@ function drawText(line) {
     gCtx.lineWidth = '2';
     gCtx.font = line.fontSize + 'px Impact';
     gCtx.textAlign = line.align;
-    gCtx.fillText(line.text, line.posX, line.posY);
-    gCtx.strokeText(line.text, line.posX, line.posY);
+    var text = line.text;
+    if (!text) text = 'Your text';
+    gCtx.fillText(text, line.posX, line.posY);
+    gCtx.strokeText(text, line.posX, line.posY);
 }
 
 function onUserTextInput(textInput) {
     var meme = getMemeById(gCurrMemeId);
-    meme.lines[0].text = textInput;
+    meme.lines[meme.selectedLineIdx].text = textInput;
     renderCanvas(getCurrMemeId());
 }
 
@@ -71,7 +75,13 @@ function onChangeTextPosY(val) {
     renderCanvas(getCurrMemeId());
 }
 
-function onSwitchLine() {
-
+function renderTextInput() {
+    var elTextInput = document.querySelector('#user-text');
+    var meme = getMemeById(gCurrMemeId);
+    elTextInput.value = meme.lines[meme.selectedLineIdx].text;
 }
 
+function onSwitchLine() {
+    switchSelectedLine();
+    renderTextInput();
+}
