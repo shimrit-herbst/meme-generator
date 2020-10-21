@@ -50,7 +50,7 @@ function renderGallery() {
         return `
        <img class="img" src="./imgs/${image.id}.jpg" onclick="onSelectImage(${image.id})">`;
     });
-    document.querySelector('.images-container').innerHTML = strHtmls.join('');
+    document.querySelector('.grid-container').innerHTML = strHtmls.join('');
 }
 
 function onSelectImage(imageId) {

@@ -2,9 +2,9 @@
 
 // var gKeywords = { 'happy': 12, 'funny puk': 1 };
 var gMemeNextId = 1;
-var gCurrMemeId = 1;
+var gCurrMemeId = 1; // TODO current meme probably should not be served from gMemes
 var gImgs = getImages();
-var gMemes = [_createMeme('bla', 1)];
+var gMemes = [_createMeme('Your text', 1)]; // TODO gMemes shold include only saved memes
 
 
 function getCurrMemeId() {
@@ -25,7 +25,6 @@ function getImgById(imgId) {
 function addMeme(txt, imgId) {
     var meme = _createMeme(txt, imgId);
     gMemes.push(meme)
-    // _saveMemesToStorage();
 }
 
 function updateMemeSelectedImg(imgId) {
@@ -49,17 +48,3 @@ function _createMeme(txt, imgId) {
         ]
     }
 }
-
-// function _createMemes() {
-//     // var memes = loadFromStorage(STORAGE_KEY);
-//     // if (!memes || !memes.length) {
-//     memes = []
-//     for (let i = 0; i < gMemes.length; i++) {
-//         var txt = '';
-//         var imgId = ;
-//         memes.push(_createMeme(txt, imgId))
-//     }
-//     gMemes = memes;
-//     // _saveMemesToStorage();
-// }
-

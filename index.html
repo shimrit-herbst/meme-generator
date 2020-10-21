@@ -10,14 +10,14 @@
 
 <body onload="onInit()">
     <header>
-        <section class="container header-wrapper flex align-center">
+        <section class="container header-container flex space-between align-center">
             <div class="logo flex-1">
                 LOGO
             </div>
-            <nav id="mainMenu" class="main-menu-wrapper">
-                <ul class="main-menu clean-list flex align-center">
+            <nav id="nav-menu" class="nav-menu-container">
+                <ul class="main-nav clean-list flex align-center">
                     <li>
-                        <a href="#" class="active">Gallary</a>
+                        <a href="#" class="active">Gallery</a>
                     </li>
                     <li>
                         <a href="#">Memes</a>
@@ -33,26 +33,25 @@
     </header>
 
     <main>
-        <section class="container">
-            <div class="images-container grid">
+        <div class="second-panel">
+            <div class="images images-container grid">
+                <div class="grid-container">
+                </div>
             </div>
-        </section>
+        </div>
 
         <div class="canvas-container">
             <canvas id="my-canvas" height="500" width="500"></canvas>
             <label for="userText"></label>
             <input type="text" id="userText" name="userText" placeholder="Write your text here" required
                 oninput="onUserTextInput(this.value)" />
+
         </div>
     </main>
 
     <footer>
         <section class="container">
-            <div class="logo">
-                Blogin
-                <span>.</span>
-            </div>
-            <small>© 2014 Blogin.com - All Rights Reserved - Find more free Templates at Pixelhint.com</small>
+            <small>© Coding Academy 2020 - Shimrit Herbst</small>
         </section>
     </footer>
 
