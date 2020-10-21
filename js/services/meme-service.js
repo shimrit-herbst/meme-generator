@@ -6,9 +6,28 @@ var gCurrMemeId = 1; // TODO current meme probably should not be served from gMe
 var gImgs = getImages();
 var gMemes = [_createMeme('Your text', 1)]; // TODO gMemes shold include only saved memes
 
+function changeFontSize(val) {
+    var meme = getMemeById(gCurrMemeId);
+    meme.lines[0].fontSize += val;
+    return meme.lines[0].fontSize;
+}
+
+function changeTextPosY(val) {
+    var meme = getMemeById(gCurrMemeId);
+    meme.lines[0].posY += val;
+    return meme.lines[0].posY;
+}
 
 function getCurrMemeId() {
     return gCurrMemeId;
+}
+
+function getMemeLinePosX() {
+    return meme.lines[0].posX;
+}
+
+function getMemeLinePosY() {
+    return meme.lines[0].posY;
 }
 
 function getMemeById(memeId) {
@@ -16,34 +35,35 @@ function getMemeById(memeId) {
     return meme;
 }
 
-
 function getImgById(imgId) {
     var img = gImgs.find((img) => { return imgId === img.id });
     return img;
 }
 
-function addMeme(txt, imgId) {
-    var meme = _createMeme(txt, imgId);
-    gMemes.push(meme)
-}
+// function saveMeme(text, imgId) {
+//     var meme = _createMeme(text, imgId);
+//     gMemes.push(meme)
+// }
 
 function updateMemeSelectedImg(imgId) {
     var meme = getMemeById(gCurrMemeId);
     meme.selectedImgId = imgId;
 }
 
-function _createMeme(txt, imgId) {
+function _createMeme(text, imgId) {
     return {
         id: gMemeNextId++,
         selectedImgId: imgId,
         selectedLineIdx: 0,
         lines: [
             {
-                txt,
-                size: 20,
+                text,
+                fontSize: 48,
                 align: 'center',
                 strokeColor: 'red',
                 fillColor: 'white',
+                posX: 250,
+                posY: 50,
             }
         ]
     }

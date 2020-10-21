@@ -32,21 +32,37 @@
         </section>
     </header>
 
-    <main>
-        <div class="second-panel">
-            <div class="images images-container grid">
-                <div class="grid-container">
-                </div>
+    <main class="main-section flex align-center">
+        <div class="images images-grid">
+            <div class="grid-container">
             </div>
         </div>
 
-        <div class="canvas-container">
-            <canvas id="my-canvas" height="500" width="500"></canvas>
-            <label for="userText"></label>
-            <input type="text" id="userText" name="userText" placeholder="Write your text here" required
-                oninput="onUserTextInput(this.value)" />
-
-        </div>
+        <section class="editor-container">
+            <div class="canvas-container">
+                <canvas id="my-canvas" height="500" width="500"></canvas>
+            </div>
+            <div class="control-area-container">
+                <section class="second-panel flex">
+                    <div class=" flex">
+                        <div class="editor-grid">
+                            <label for="user-text"></label>
+                            <input type="text" id="user-text" name="user-text" placeholder="Write your text here"
+                                required oninput="onUserTextInput(this.value)" />
+                            <button class="icon" onclick="onChangeFontSize(2)"><img
+                                    src="./icons/increase font - icon.png" /></button>
+                            <button class="icon" onclick="onChangeFontSize(-2)"><img
+                                    src="./icons/decrease font - icon.png" /></button>
+                            <button class="icon" onclick="onChangeTextPosY(-3)"><img
+                                    src="./imgs/down-arrow.svg"></button>
+                            <button class="icon" onclick="onChangeTextPosY(3)"><img
+                                    src="./imgs/long-arrow-pointing-up.svg"></button>
+                            <button class="icon" onclick="onSwitchLine()"><img
+                                    src="./icons/up-and-down-opposite-double-arrows-side-by-side.png"></button>
+                        </div>
+                    </div>
+            </div>
+        </section>
     </main>
 
     <footer>

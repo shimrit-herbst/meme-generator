@@ -20,26 +20,24 @@ function drawMeme(meme) {
     img.src = getImgById(meme.selectedImgId).url;
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
-        var text = meme.lines[0].txt;
-        drawText(text, 250, 50);
-        addMeme(text, meme.selectedImgId);
+        drawText(meme.lines[0]);
     }
 }
 
-function drawText(text, x, y) {
-    gCtx.strokeStyle = 'red'
-    gCtx.fillStyle = 'white'
-    gCtx.lineWidth = '2'
-    gCtx.font = '48px Impact'
-    gCtx.textAlign = 'center'
-    gCtx.fillText(text, x, y)
-    gCtx.strokeText(text, x, y)
+function drawText(line) {
+    gCtx.strokeStyle = line.strokeColor;
+    gCtx.fillStyle = line.fillColor;
+    gCtx.lineWidth = '2';
+    gCtx.font = line.fontSize + 'px Impact';
+    gCtx.textAlign = line.align;
+    gCtx.fillText(line.text, line.posX, line.posY);
+    gCtx.strokeText(line.text, line.posX, line.posY);
 }
 
-function onUserTextInput(txtInput) {
+function onUserTextInput(textInput) {
     var meme = getMemeById(gCurrMemeId);
-    meme.lines[0].txt = txtInput;
-    renderCanvas(gCurrMemeId);
+    meme.lines[0].text = textInput;
+    renderCanvas(getCurrMemeId());
 }
 
 /** GALLERY **/
@@ -54,7 +52,26 @@ function renderGallery() {
 }
 
 function onSelectImage(imageId) {
+    // var elEditorContainer = document.querySelector('.editor-container');
+    // elEditorContainer.classList.remove('hide');
+    // var elGridContainer = document.querySelector('.grid-container');
+    // elGridContainer.classList.add('hide');
     updateMemeSelectedImg(imageId);
-    var memeId = getCurrMemeId();
-    renderCanvas(memeId);
+    renderCanvas(getCurrMemeId());
+
 }
+
+function onChangeFontSize(val) {
+    changeFontSize(val);
+    renderCanvas(getCurrMemeId());
+}
+
+function onChangeTextPosY(val) {
+    changeTextPosY(val);
+    renderCanvas(getCurrMemeId());
+}
+
+function onSwitchLine() {
+
+}
+
