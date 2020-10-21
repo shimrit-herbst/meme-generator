@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Best Meme Generator</title>
+</head>
+
+<body>
+    <h1>Best Meme Generator</h1>
+
+    <header>
+        <section class="container header-wrapper flex align-center">
+            <div class="logo flex-1">
+                LOGO
+            </div>
+            <nav id="mainMenu" class="main-menu-wrapper">
+                <ul class="main-menu clean-list flex align-center">
+                    <li>
+                        <a href="#" class="active">Gallary</a>
+                    </li>
+                    <li>
+                        <a href="#">Memes</a>
+                    </li>
+                    <li>
+                        <a href="#">About</a>
+                    </li>
+                </ul>
+                <button class="toggle-menu-btn fa" onclick="toggleMenu()" alt="Open main menu"></button>
+                <div class="toggle-menu-screen screen" onclick="toggleMenu()" alt="toggle main menu"></div>
+            </nav>
+        </section>
+    </header>
+
+    <main>
+        <section class="container main-wrapper flex space-between">
+            <div class="second-panel">
+                <div class="images images-wrapper grid">
+                    <img class="regular" src="images/image-001.jpg" alt="">
+                    <img class="portrait" src="images/image-002.jpg" alt="">
+                    <img class="landscape" src="images/image-003.jpg" alt="">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="canvas-container">
+        <canvas id="my-canvas" height="500" width="980" onmousedown="onCanvasMouseDown(event)"
+            onmousemove="onCanvasMouseMove(event)" onmouseup="onCanvasMouseUp(event)"
+            ontouchstart="onCanvasTouchStart(event)" ontouchmove="onCanvasTouchMove(event)"
+            ontouchend="onCanvasTouchEnd(event)"></canvas>
+    </div>
+
+
+    <footer>
+
+        <section class="container">
+            <div class="logo">
+                Blogin
+                <span>.</span>
+            </div>
+            <small>© 2014 Blogin.com - All Rights Reserved - Find more free Templates at Pixelhint.com</small>
+        </section>
+    </footer>
+
+
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
