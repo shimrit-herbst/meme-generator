@@ -6,21 +6,47 @@ var gCurrMemeId = 1; // TODO current meme probably should not be served from gMe
 var gImgs = getImages();
 var gMemes = [_createMeme('', 1)]; // TODO gMemes shold include only saved memes
 
-function switchSelectedLine() {
+
+function addNewLine() {
+    var meme = getMemeById(gCurrMemeId);
+    var newLine = {
+        text: '',
+        fontSize: 48,
+        align: 'center',
+        strokeColor: 'black',
+        fillColor: 'white',
+        posX: 250,
+        posY: 250,
+        shadowColor: 'white',
+        shadowBlur: 12,
+    };
+    meme.lines.push(newLine);
+    var lastIdx = meme.lines.length - 1;
+    switchSelectedLine(lastIdx);
+}
+
+function deleteSelectedLine() {
+    var meme = getMemeById(gCurrMemeId);
+    meme.lines.splice(meme.selectedLineIdx, 1);
+    switchSelectedLine(0);
+}
+
+function switchSelectedLine(newSelectedIdx) {
     var meme = getMemeById(gCurrMemeId);
 
-    // Define current selected line
-    var oldSelectedLine = meme.lines[meme.selectedLineIdx];
-    oldSelectedLine.shadowBlur = 0;
-
     // Switch selected line
-    meme.selectedLineIdx += 1;
+    if (newSelectedIdx !== undefined) {
+        meme.selectedLineIdx = newSelectedIdx;
+    }
+    else {
+        meme.selectedLineIdx += 1;
+    };
     if (meme.selectedLineIdx === meme.lines.length)
         meme.selectedLineIdx = 0;
 
-    // Define new selected line
-    var newSelectedLine = meme.lines[meme.selectedLineIdx];
-    newSelectedLine.shadowBlur = 12;
+    for (let i = 0; i < meme.lines.length; i++) {
+        meme.lines[i].shadowBlur = (i === meme.selectedLineIdx) ? 12 : 0;
+    }
 }
 
 function changeFontSize(val) {

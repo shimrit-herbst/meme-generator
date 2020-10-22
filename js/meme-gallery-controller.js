@@ -62,14 +62,8 @@ function renderGallery() {
 }
 
 function onSelectImage(imageId) {
-    var elEditorContainer = document.querySelector('.editor-container');
-    // elEditorContainer.classList.remove('hide');
-    // elEditorContainer.classList.add('flex');
-    var elGridContainer = document.querySelector('.grid-container');
-    // elGridContainer.classList.add('hide');
     updateMemeSelectedImg(imageId);
     renderCanvas(getCurrMemeId());
-
 }
 
 function onChangeFontSize(val) {
@@ -85,11 +79,27 @@ function onChangeTextPosY(val) {
 function renderTextInput() {
     var elTextInput = document.querySelector('#user-text');
     var meme = getMemeById(gCurrMemeId);
-    elTextInput.value = meme.lines[meme.selectedLineIdx].text;
+    var newValue = '';
+    if (meme.lines[meme.selectedLineIdx]) {
+        newValue = meme.lines[meme.selectedLineIdx].text;
+    }
+    elTextInput.value = newValue;
 }
 
 function onSwitchLine() {
     switchSelectedLine();
+    renderTextInput();
+    renderCanvas(getCurrMemeId());
+}
+
+function onDeleteLine() {
+    deleteSelectedLine();
+    renderTextInput();
+    renderCanvas(getCurrMemeId());
+}
+
+function onAddLine() {
+    addNewLine();
     renderTextInput();
     renderCanvas(getCurrMemeId());
 }
