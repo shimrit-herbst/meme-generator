@@ -8,11 +8,20 @@ var gMemes = [_createMeme('', 1)]; // TODO gMemes shold include only saved memes
 
 function switchSelectedLine() {
     var meme = getMemeById(gCurrMemeId);
+
+    // Define current selected line
+    var oldSelectedLine = meme.lines[meme.selectedLineIdx];
+    oldSelectedLine.shadowBlur = 0;
+
+    // Switch selected line
     meme.selectedLineIdx += 1;
     if (meme.selectedLineIdx === meme.lines.length)
         meme.selectedLineIdx = 0;
-}
 
+    // Define new selected line
+    var newSelectedLine = meme.lines[meme.selectedLineIdx];
+    newSelectedLine.shadowBlur = 12;
+}
 
 function changeFontSize(val) {
     var meme = getMemeById(gCurrMemeId);
@@ -68,6 +77,8 @@ function _createMeme(text, imgId) {
                 fillColor: 'white',
                 posX: 250,
                 posY: 50,
+                shadowColor: 'white',
+                shadowBlur: 12,
             },
             {
                 text,
@@ -77,6 +88,8 @@ function _createMeme(text, imgId) {
                 fillColor: 'white',
                 posX: 250,
                 posY: 450,
+                shadowColor: 'white',
+                shadowBlur: 0,
             }
         ]
     }

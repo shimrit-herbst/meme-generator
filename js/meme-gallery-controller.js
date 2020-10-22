@@ -27,15 +27,18 @@ function drawMeme(meme) {
 }
 
 function drawText(line) {
-    gCtx.strokeStyle = line.strokeColor;
-    gCtx.fillStyle = line.fillColor;
-    gCtx.lineWidth = '2';
-    gCtx.font = line.fontSize + 'px Impact';
-    gCtx.textAlign = line.align;
     var text = line.text;
     if (!text) text = 'Your text';
-    gCtx.fillText(text, line.posX, line.posY);
+
+    gCtx.strokeStyle = line.strokeColor;
+    gCtx.font = line.fontSize + 'px Impact';
+    gCtx.textAlign = line.align;
+    gCtx.shadowColor = line.shadowColor;
+    gCtx.shadowBlur = line.shadowBlur;
+    gCtx.lineWidth = '3';
     gCtx.strokeText(text, line.posX, line.posY);
+    gCtx.fillStyle = line.fillColor;
+    gCtx.fillText(text, line.posX, line.posY);
 }
 
 function onUserTextInput(textInput) {
@@ -84,4 +87,5 @@ function renderTextInput() {
 function onSwitchLine() {
     switchSelectedLine();
     renderTextInput();
+    renderCanvas(getCurrMemeId());
 }
