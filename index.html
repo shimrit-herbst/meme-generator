@@ -10,58 +10,57 @@
 
 <body onload="onInit()">
     <header>
-        <section class="container header-container flex space-between align-center">
+        <div class="container header-container flex space-between">
             <div class="logo flex-1">
-                LOGO
+                MEMEGEN
             </div>
             <nav id="nav-menu" class="nav-menu-container">
-                <ul class="main-nav clean-list flex align-center">
+                <ul class="main-nav clean-list flex">
                     <li>
-                        <a href="#" class="active">Gallery</a>
+                        <a href="#gallery">Gallery</a>
                     </li>
                     <li>
-                        <a href="#">Memes</a>
+                        <a href="#memes">Memes</a>
                     </li>
                     <li>
                         <a href="#">About</a>
                     </li>
                 </ul>
-                <button class="toggle-menu-btn fa" onclick="toggleMenu()" alt="Open main menu"></button>
-                <div class="toggle-menu-screen screen" onclick="toggleMenu()" alt="toggle main menu"></div>
+                <button class="toggle-menu-btn fa" onclick="toggleMenu()"></button>
+                <div class="toggle-menu-screen screen" onclick="toggleMenu()"></div>
             </nav>
-        </section>
+        </div>
     </header>
 
     <main class="main-section flex align-center">
-        <div class="images images-grid">
-            <div class="grid-container">
+        <section class="images images-grid" id="gallery">
+            <div class="grid-container grid">
             </div>
-        </div>
+        </section>
 
-        <section class="editor-container">
-            <div class="canvas-container">
-                <canvas id="my-canvas" height="500" width="500"></canvas>
+        <section class="editor-container" id="editor">
+            <div class="editor flex">
+                <div class="canvas-container">
+                    <canvas id="my-canvas" height="500" width="500"></canvas>
+                </div>
+                <div class="control-btns-container grid">
+                    <label for="user-text"></label>
+                    <input type="text" id="user-text" name="user-text" placeholder="Write your text here" required
+                        oninput="onUserTextInput(this.value)" />
+                    <button class="icon icon1" onclick="onChangeFontSize(2)"><img
+                            src="./icons/increase font - icon.png" /></button>
+                    <button class="icon icon2" onclick="onChangeFontSize(-2)"><img
+                            src="./icons/decrease font - icon.png" /></button>
+                    <button class="icon icon3" onclick="onChangeTextPosY(3)"><img src="./imgs/down-arrow.svg"></button>
+                    <button class="icon icon4" onclick="onChangeTextPosY(-3)"><img
+                            src="./imgs/long-arrow-pointing-up.svg"></button>
+                    <button class="icon icon5" onclick="onSwitchLine()"><img
+                            src="./icons/up-and-down-opposite-double-arrows-side-by-side.png"></button>
+                </div>
             </div>
-            <div class="control-area-container">
-                <section class="second-panel flex">
-                    <div class=" flex">
-                        <div class="editor-grid">
-                            <label for="user-text"></label>
-                            <input type="text" id="user-text" name="user-text" placeholder="Write your text here"
-                                required oninput="onUserTextInput(this.value)" />
-                            <button class="icon" onclick="onChangeFontSize(2)"><img
-                                    src="./icons/increase font - icon.png" /></button>
-                            <button class="icon" onclick="onChangeFontSize(-2)"><img
-                                    src="./icons/decrease font - icon.png" /></button>
-                            <button class="icon" onclick="onChangeTextPosY(3)"><img
-                                    src="./imgs/down-arrow.svg"></button>
-                            <button class="icon" onclick="onChangeTextPosY(-3)"><img
-                                    src="./imgs/long-arrow-pointing-up.svg"></button>
-                            <button class="icon" onclick="onSwitchLine()"><img
-                                    src="./icons/up-and-down-opposite-double-arrows-side-by-side.png"></button>
-                        </div>
-                    </div>
-            </div>
+        </section>
+        <section id="memes">
+            <h1>Saved Memes</h1>
         </section>
     </main>
 

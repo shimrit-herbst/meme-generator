@@ -7,6 +7,9 @@ var gCtx = gCanvas.getContext('2d');
 function onInit() {
     renderGallery();
     renderCanvas(getCurrMemeId());
+    if (document.querySelectorAll("section:target").length == 0) {
+        window.location = "#gallery";
+    }
 }
 
 function renderCanvas(memeId) {
@@ -53,15 +56,16 @@ function renderGallery() {
     var images = getImages();
     var strHtmls = images.map((image) => {
         return `
-       <img class="img" src="./imgs/${image.id}.jpg" onclick="onSelectImage(${image.id})">`;
+       <a href="#editor"><img class="img" src="./imgs/${image.id}.jpg" onclick="onSelectImage(${image.id})"></a>`;
     });
     document.querySelector('.grid-container').innerHTML = strHtmls.join('');
 }
 
 function onSelectImage(imageId) {
-    // var elEditorContainer = document.querySelector('.editor-container');
+    var elEditorContainer = document.querySelector('.editor-container');
     // elEditorContainer.classList.remove('hide');
-    // var elGridContainer = document.querySelector('.grid-container');
+    // elEditorContainer.classList.add('flex');
+    var elGridContainer = document.querySelector('.grid-container');
     // elGridContainer.classList.add('hide');
     updateMemeSelectedImg(imageId);
     renderCanvas(getCurrMemeId());
@@ -88,4 +92,12 @@ function onSwitchLine() {
     switchSelectedLine();
     renderTextInput();
     renderCanvas(getCurrMemeId());
+}
+
+
+
+
+function toggleMenu() {
+    var navMenu = document.getElementById('.nav-menu-container');
+    navMenu.classList.toggle('open');
 }
