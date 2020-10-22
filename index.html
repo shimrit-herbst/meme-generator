@@ -35,7 +35,7 @@
     <main class="main-section flex align-center">
         <!-- Gallery -->
         <section class="images images-grid" id="gallery">
-            <div class="grid-container grid">
+            <div class="images-grid-container grid-container grid">
             </div>
         </section>
 
@@ -64,13 +64,13 @@
                     <button class="icon add-line-icon" onclick="onAddLine()"><img src="./icons/add.png"></button>
                     <button class="icon download-icon" onclick="onDownloadImg()"><a><img
                                 src="./imgs/download.svg"></a></button>
+                    <button class="icon save-icon" onclick="onSaveMeme()"><a><img src="./imgs/save.svg"></a></button>
                 </div>
             </div>
         </section>
 
         <!-- Saved Memes -->
-        <section id="memes">
-            <h1>Saved Memes</h1>
+        <section class="images images-grid" id="memes">
         </section>
 
         <!-- About -->
@@ -111,6 +111,7 @@
         </section>
     </footer>
 
+    <script src="./js/services/storage-service.js"></script>
     <script src="./js/services/gallery-service.js"></script>
     <script src="./js/services/meme-service.js"></script>
     <script src="./js/controller.js"></script>

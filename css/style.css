@@ -13,10 +13,9 @@ body {
     background-color: #22252c;
 }
 
-/* 
 .hide {
     display: none;
-} */
+}
 
 .grid {
     display: grid;
@@ -250,10 +249,13 @@ footer {
 }
 
 .control-btns-container .download-icon {
-    grid-column: 3 / span 2;
+    grid-column: 3 / span 1;
     grid-row: 5 / span 1;
-    height: 2.5rem;
-    width: 7.5rem;
+}
+
+.control-btns-container .save-icon {
+    grid-column: 4 / span 1;
+    grid-row: 5 / span 1;
 }
 
 .editor-container .control-btns-container img {

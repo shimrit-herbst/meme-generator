@@ -3,13 +3,27 @@
 var gCanvas = document.querySelector('#my-canvas');
 var gCtx = gCanvas.getContext('2d');
 
-
 function onInit() {
     renderGallery();
     renderCanvas(getCurrMemeId());
     if (document.querySelectorAll("section:target").length == 0) {
         window.location = "#gallery";
     }
+    loadSavedMemes();
+    renderSavedMemes();
+}
+
+function renderSavedMemes() {
+    var fullInnerHtml = '<h2>No saved memes yet... </h2>';
+    var savedMemes = getSavedMemes();
+    if (savedMemes.length > 0) {
+        var strHtmls = savedMemes.map((savedMeme) => {
+            return `<img class="img" src="${savedMeme}"/>`;
+        });
+        fullInnerHtml = `<div class="memes-grid-container grid-container grid">${strHtmls.join('')}</div>`;
+    }
+    var elMemes = document.querySelector('#memes');
+    elMemes.innerHTML = fullInnerHtml;
 }
 
 function renderCanvas(memeId) {
@@ -56,7 +70,7 @@ function renderGallery() {
         return `
        <a href="#editor"><img class="img" src="./imgs/${image.id}.jpg" onclick="onSelectImage(${image.id})"></a>`;
     });
-    document.querySelector('.grid-container').innerHTML = strHtmls.join('');
+    document.querySelector('.images-grid-container').innerHTML = strHtmls.join('');
 }
 
 function onSelectImage(imageId) {
@@ -125,6 +139,17 @@ function onDownloadImg() {
         lnk.fireEvent("onclick");
     }
 }
+
+function _getBase64Image() {
+    return gCanvas.toDataURL("image/png");
+}
+
+function onSaveMeme() {
+    saveMeme(_getBase64Image());
+    window.location.href = "#memes";
+    renderSavedMemes();
+}
+
 
 function toggleMenu() {
     document.body.classList.toggle('menu-open');

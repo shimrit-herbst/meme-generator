@@ -1,11 +1,27 @@
 'use strict'
 
+const STORAGE_KEY = 'savedMemesDB';
+
+
 // var gKeywords = { 'happy': 12, 'funny puk': 1 };
 var gMemeNextId = 1;
 var gCurrMemeId = 1; // TODO current meme probably should not be served from gMemes
 var gImgs = getImages();
 var gMemes = [_createMeme('', 1)]; // TODO gMemes shold include only saved memes
+var gSavedMemes = [];
 
+function saveMeme(base64ImgData) {
+    gSavedMemes.push(base64ImgData);
+    _saveMemesToStorage();
+}
+
+function getSavedMemes() {
+    return gSavedMemes;
+}
+
+function loadSavedMemes() {
+    _loadMemesFromStorage();
+}
 
 function addNewLine() {
     var meme = getMemeById(gCurrMemeId);
@@ -119,4 +135,14 @@ function _createMeme(text, imgId) {
             }
         ]
     }
+}
+
+function _saveMemesToStorage() {
+    saveToStorage(STORAGE_KEY, gSavedMemes);
+}
+
+function _loadMemesFromStorage() {
+    var memes = loadFromStorage(STORAGE_KEY);
+    if (!memes) memes = [];
+    gSavedMemes = memes;
 }
