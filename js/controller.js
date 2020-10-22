@@ -102,6 +102,30 @@ function onAddLine() {
     renderCanvas(getCurrMemeId());
 }
 
+function onDownloadImg() {
+    // create an "off-screen" anchor tag
+    var lnk = document.createElement('a');
+
+    // the key here is to set the download attribute of the a tag
+    lnk.download = 'meme.png';
+
+    // convert canvas content to data-uri for link. When download
+    // attribute is set the content pointed to by link will be
+    // pushed as "download" in HTML5 capable browsers
+    lnk.href = gCanvas.toDataURL("image/png;base64");
+
+    // create a "fake" click-event to trigger the download
+    if (document.createEvent) {
+        var event = document.createEvent("MouseEvents");
+        event.initMouseEvent("click", true, true, window,
+            0, 0, 0, 0, 0, false, false, false,
+            false, 0, null);
+        lnk.dispatchEvent(event);
+    } else if (lnk.fireEvent) {
+        lnk.fireEvent("onclick");
+    }
+}
+
 function toggleMenu() {
     document.body.classList.toggle('menu-open');
 }
