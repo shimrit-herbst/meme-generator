@@ -50,8 +50,6 @@ function onUserTextInput(textInput) {
     renderCanvas(getCurrMemeId());
 }
 
-/** GALLERY **/
-
 function renderGallery() {
     var images = getImages();
     var strHtmls = images.map((image) => {
