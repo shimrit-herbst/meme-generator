@@ -5,7 +5,7 @@ var gCtx = gCanvas.getContext('2d');
 
 function onInit() {
     renderGallery();
-    renderCanvas(getCurrMemeId());
+    renderCanvas();
     if (document.querySelectorAll("section:target").length == 0) {
         window.location = "#gallery";
     }
@@ -26,13 +26,8 @@ function renderSavedMemes() {
     elMemes.innerHTML = fullInnerHtml;
 }
 
-function renderCanvas(memeId) {
-    if (!memeId) return;
-    var meme = getMemeById(memeId);
-    drawMeme(meme);
-}
-
-function drawMeme(meme) {
+function renderCanvas() {
+    var meme = getMeme();
     var img = new Image()
     img.src = getImgById(meme.selectedImgId).url;
     img.onload = () => {
@@ -59,9 +54,9 @@ function drawText(line) {
 }
 
 function onUserTextInput(textInput) {
-    var meme = getMemeById(gCurrMemeId);
+    var meme = getMeme();
     meme.lines[meme.selectedLineIdx].text = textInput;
-    renderCanvas(getCurrMemeId());
+    renderCanvas();
 }
 
 function renderGallery() {
@@ -75,22 +70,22 @@ function renderGallery() {
 
 function onSelectImage(imageId) {
     updateMemeSelectedImg(imageId);
-    renderCanvas(getCurrMemeId());
+    renderCanvas();
 }
 
 function onChangeFontSize(val) {
     changeFontSize(val);
-    renderCanvas(getCurrMemeId());
+    renderCanvas();
 }
 
 function onChangeTextPosY(val) {
     changeTextPosY(val);
-    renderCanvas(getCurrMemeId());
+    renderCanvas();
 }
 
 function renderTextInput() {
     var elTextInput = document.querySelector('#user-text');
-    var meme = getMemeById(gCurrMemeId);
+    var meme = getMeme();
     var newValue = '';
     if (meme.lines[meme.selectedLineIdx]) {
         newValue = meme.lines[meme.selectedLineIdx].text;
@@ -101,19 +96,19 @@ function renderTextInput() {
 function onSwitchLine() {
     switchSelectedLine();
     renderTextInput();
-    renderCanvas(getCurrMemeId());
+    renderCanvas();
 }
 
 function onDeleteLine() {
     deleteSelectedLine();
     renderTextInput();
-    renderCanvas(getCurrMemeId());
+    renderCanvas();
 }
 
 function onAddLine() {
     addNewLine();
     renderTextInput();
-    renderCanvas(getCurrMemeId());
+    renderCanvas();
 }
 
 function onDownloadImg() {
