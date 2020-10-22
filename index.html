@@ -11,7 +11,7 @@
 <body onload="onInit()">
     <header>
         <div class="container header-container flex space-between">
-            <div class="logo flex-1">
+            <div class="logo flex">
                 MEMEGEN
             </div>
             <nav id="nav-menu" class="nav-menu-container">
@@ -23,21 +23,25 @@
                         <a href="#memes">Memes</a>
                     </li>
                     <li>
-                        <a href="#">About</a>
+                        <a href="#about">About</a>
                     </li>
                 </ul>
-                <button class="toggle-menu-btn fa" onclick="toggleMenu()"></button>
-                <div class="toggle-menu-screen screen" onclick="toggleMenu()"></div>
+                <div class="flex">
+                    <button class="hamburger-sign flex" onclick="toggleMenu()" hidden>☰</button>
+                    <div class="screen" onclick="toggleMenu()"></div>
+                </div>
             </nav>
         </div>
     </header>
 
     <main class="main-section flex align-center">
+        <!-- Gallery -->
         <section class="images images-grid" id="gallery">
             <div class="grid-container grid">
             </div>
         </section>
 
+        <!-- Meme Editor -->
         <section class="editor-container" id="editor">
             <div class="editor flex">
                 <div class="canvas-container">
@@ -59,8 +63,41 @@
                 </div>
             </div>
         </section>
+
+        <!-- Saved Memes -->
         <section id="memes">
             <h1>Saved Memes</h1>
+        </section>
+
+        <!-- About -->
+        <section id="about">
+            <div class="about-card">
+                <div class="team-member">
+                    <img class="about-image" src="./imgs/me.jpg">
+                    <h4>Shimrit Herbst</h4>
+                    <p class="Title">Projects Manager</p>
+                </div>
+            </div>
+            <div class="flex align-center">
+                <p class="about-description">This is my story... </br>
+                    I have managed 8 team members, integrated programmers, statisticians
+                    and medical writers. During this period I had to ensure compliance with client requirements and
+                    business needs
+                    as well as to ensure client satisfaction. I worked directly with clients to ensure deliverables
+                    fall within
+                    the client scope and budget, ensuring they adhere to quality standards. Starting from the scope
+                    of work and
+                    budget phase, to requirements and planning (protocol writing, sample size calculations,
+                    statistical rationale,
+                    project management plan, CRF and database design) through the execution (organizing and
+                    participating in
+                    client meetings, ongoing monitoring and training before and during the study until a database is
+                    closed/locked), until the final statistical/clinical report of a clinical study. Lead several
+                    projects
+                    simultaneously, and worked with several EDC (Electronic data capture) systems.
+                </p>
+            </div>
+            </div>
         </section>
     </main>
 

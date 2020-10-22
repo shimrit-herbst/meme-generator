@@ -94,10 +94,6 @@ function onSwitchLine() {
     renderCanvas(getCurrMemeId());
 }
 
-
-
-
 function toggleMenu() {
-    var navMenu = document.getElementById('.nav-menu-container');
-    navMenu.classList.toggle('open');
+    document.body.classList.toggle('menu-open');
 }

@@ -8,7 +8,6 @@
     src: url('/fonts/Countryside\ Personal\ Use.ttf');
 }
 
-
 body {
     margin: 0;
     background-color: #22252c;
@@ -21,6 +20,12 @@ body {
 
 .grid {
     display: grid;
+}
+
+img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
 
 /* Layout */
@@ -193,7 +198,7 @@ footer {
 }
 
 #user-text {
-    grid-column: 1 / 6;
+    grid-column: 2 / 6;
     grid-row: 1 / 1;
     padding: 10px;
     font-size: 1rem;
@@ -237,6 +242,23 @@ footer {
     height: 1.25rem;
 }
 
+/* About */
+
+#about {
+    color: white;
+    background-color: #383b42;
+    font-family: Poppins;
+    font-size: 1.312irem;
+    text-align: center;
+}
+
+.about-image {
+    width: 15rem;
+    height: 15rem;
+    border-radius: 50%;
+}
+
+
 /* Helpers */
 
 /* flex helpers */
@@ -251,6 +273,7 @@ footer {
 
 .flex.align-center {
     align-items: center;
+    justify-content: center;
 }
 
 /* list-helpers */
@@ -261,16 +284,82 @@ footer {
     padding: 0;
 }
 
-/* @media (max-width: 720px) {
-    .toggle-menu-btn {
-        display: block;
+@media (max-width: 520px) {
+    .container .logo {
+        padding-inline-start: 0.6rem;
     }
 
-    .toggle-menu-screen {
+    .hamburger-sign {
         display: block;
+        width: 50px;
+        height: 50px;
+        font-size: 1.062rem;
+        border-radius: 50%;
     }
 
-    .open .nav-menu {
-        transform: translate(0, 0);
+    .header-container {
+        height: 70px;
+        margin: 0;
+        border-radius: 0;
     }
-} */
+
+    .header-container .main-nav {
+        z-index: 1;
+        background-image: linear-gradient(-86deg, #33be6d 0%, #0c98b9 100%);
+        position: fixed;
+        flex-direction: column;
+        top: 68px;
+        right: 0;
+        height: 28vh;
+        width: 100%;
+        text-align: center;
+        transform: translateY(-130%);
+        transition: transform .8s;
+    }
+
+    body.menu-open .main-nav {
+        transform: translateX(0);
+        transition: transform .8s;
+    }
+
+    .header-container .main-nav a {
+        color: black;
+        font-size: 1.8rem;
+        width: 90%;
+        box-shadow: 2px 6px 21px -2px rgba(0, 0, 0, 0.75);
+        border-top: 2px solid white;
+        border-bottom: 2px solid white;
+    }
+
+    .header-container .main-nav a:first-child {
+        border-bottom: none;
+        border-top: 2px solid white;
+    }
+
+    .header-container .main-nav a:last-child {
+        border-top: none;
+    }
+
+    .header-container .main-nav a:hover {
+        color: grey;
+        box-shadow: none;
+        background-color: rgba(229, 229, 229, 0.56);
+    }
+
+    .main-section .grid-container .img {
+        width: 200px;
+        height: 173px;
+        object-fit: cover;
+        border-radius: 15px;
+    }
+
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 1fr;
+        padding: 10px;
+    }
+
+    .editor-container .editor {
+        flex-direction: column;
+    }
+}
