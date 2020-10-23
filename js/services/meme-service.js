@@ -6,8 +6,9 @@ const STORAGE_KEY = 'savedMemesDB';
 // var gKeywords = { 'happy': 12, 'funny puk': 1 };
 var gMemeNextId = 1;
 var gImgs = getImages();
-var gMeme = _createMeme('', 1);
+var gMeme;
 var gSavedMemes = [];
+
 
 function saveMeme(base64ImgData) {
     gSavedMemes.push(base64ImgData);
@@ -70,6 +71,16 @@ function changeTextPosY(val) {
     return gMeme.lines[gMeme.selectedLineIdx].posY;
 }
 
+function setTextColor(color) {
+    gMeme.lines[gMeme.selectedLineIdx].fillColor = color;
+    return gMeme.lines[gMeme.selectedLineIdx].fillColor;
+}
+
+function setTextBorderColor(color){
+    gMeme.lines[gMeme.selectedLineIdx].strokeColor = color;
+    return gMeme.lines[gMeme.selectedLineIdx].strokeColor;
+}
+
 function getMeme() {
     return gMeme;
 }
@@ -83,35 +94,31 @@ function getImgById(imgId) {
     return img;
 }
 
-function updateMemeSelectedImg(imgId) {
-    gMeme.selectedImgId = imgId;
-}
-
-function _createMeme(text, imgId) {
-    return {
+function initMeme(imgId) {
+    gMeme = {
         id: gMemeNextId++,
         selectedImgId: imgId,
         selectedLineIdx: 0,
         lines: [
             {
-                text,
+                text: '',
                 fontSize: 48,
                 align: 'center',
                 strokeColor: 'black',
                 fillColor: 'white',
-                posX: 250,
+                posX: 220,
                 posY: 50,
                 shadowColor: 'white',
                 shadowBlur: 12,
             },
             {
-                text,
+                text: '',
                 fontSize: 48,
                 align: 'center',
                 strokeColor: 'black',
                 fillColor: 'white',
-                posX: 250,
-                posY: 450,
+                posX: 220,
+                posY: 432,
                 shadowColor: 'white',
                 shadowBlur: 0,
             }

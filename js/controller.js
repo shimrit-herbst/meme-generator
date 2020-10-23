@@ -5,8 +5,7 @@ var gCtx = gCanvas.getContext('2d');
 
 function onInit() {
     renderGallery();
-    renderCanvas();
-    if (document.querySelectorAll("section:target").length == 0) {
+    if (document.querySelectorAll("section:target").length === 0) {
         window.location = "#gallery";
     }
     loadSavedMemes();
@@ -14,7 +13,7 @@ function onInit() {
 }
 
 function renderSavedMemes() {
-    var fullInnerHtml = '<h2>No saved memes yet... </h2>';
+    var fullInnerHtml = '<h2>No saved memes to show... Go and create your own meme! </h2>';
     var savedMemes = getSavedMemes();
     if (savedMemes.length > 0) {
         var strHtmls = savedMemes.map((savedMeme) => {
@@ -69,7 +68,8 @@ function renderGallery() {
 }
 
 function onSelectImage(imageId) {
-    updateMemeSelectedImg(imageId);
+    initMeme(imageId);
+    renderTextInput();
     renderCanvas();
 }
 
@@ -135,6 +135,26 @@ function onDownloadImg() {
     }
 }
 
+// function onClickTextColorPallete() {
+//     document.querySelector('#text-color').click();
+// }
+
+// function onChangeTextColor(color) {
+//     gCtx.fillStyle = color;
+//     setTextColor(color);
+//     renderCanvas();
+// }
+
+// function onClickTextBorderColorPallete() {
+//     document.querySelector('#stroke-color').click();
+// }
+
+// function onChangeTextBorderColor(color) {
+//     gCtx.strokeStyle = document.querySelector('#stroke-style').value;
+//     setTextBorderColor(color);
+//     renderCanvas();
+// }
+
 function _getBase64Image() {
     return gCanvas.toDataURL("image/png");
 }
@@ -144,7 +164,6 @@ function onSaveMeme() {
     window.location.href = "#memes";
     renderSavedMemes();
 }
-
 
 function toggleMenu() {
     document.body.classList.toggle('menu-open');

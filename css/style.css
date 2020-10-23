@@ -1,17 +1,18 @@
 @font-face {
     font-family: 'Poppins';
-    src: url('/fonts/Poppins-Regular.ttf');
+    src: url('../fonts/Poppins-Regular.ttf');
 }
 
 @font-face {
     font-family: 'Countryside';
-    src: url('/fonts/Countryside\ Personal\ Use.ttf');
+    src: url('../fonts/Countryside\ Personal\ Use.ttf');
 }
 
 body {
     margin: 0;
     background-color: #22252c;
 }
+
 
 .hide {
     display: none;
@@ -33,7 +34,7 @@ img {
     height: 73px;
     background-color: #5970c1;
     font-family: Poppins;
-    font-size: 1.312irem;
+    font-size: 1.312rem;
     background-image: linear-gradient(-86deg, #33be6d 0%, #0c98b9 100%);
     border-radius: 80px;
     margin: 15px;
@@ -82,12 +83,7 @@ section:target {
     color: #21ac91;
 }
 
-.header-container .main-nav a:active {
-    background-color: white;
-    color: #21ac91;
-    box-shadow: 0 0 #1d1d1d, inset 0 -6px 0 white;
-}
-
+.header-container .main-nav a:active,
 .header-container .main-nav a:focus {
     background-color: white;
     color: #21ac91;
@@ -159,7 +155,7 @@ footer {
     /* display: flex; */
     background-color: #383b42;
     border-radius: 10px;
-    margin: auto;
+    margin: 20px auto;
 }
 
 .grid-container {
@@ -180,21 +176,29 @@ footer {
     grid-row: span 1;
 }
 
+.main-section .images-grid-container .img:hover {
+    box-shadow: 9px 10px 35px -5px rgba(255, 255, 255, 1);
+}
+
 /* Editor-Canvas */
 
 .editor-container {
     width: fit-content;
     height: fit-content;
     margin: 15px auto;
-    background-color: #383b42;
+    /* background-color: #383b42; */
     border-radius: 10px;
 }
 
 .control-btns-container {
     grid-template-columns: repeat(7, 1fr);
     grid-template-rows: repeat(6, 1fr);
-    gap: 2rem;
-    margin: 22px;
+    gap: 1.725rem;
+    margin: 0 22px;
+    background-color: #383b42;
+    border-radius: 30px;
+    padding-top: 10px;
+    height: 452px;
 }
 
 #user-text {
@@ -204,6 +208,8 @@ footer {
     font-size: 1rem;
     text-align: center;
     height: 1.8rem;
+    border-radius: 28px;
+    align-self: center;
 }
 
 .control-btns-container .icon {
@@ -211,6 +217,8 @@ footer {
     width: 2.5rem;
     border-radius: 10px;
     cursor: pointer;
+    align-self: center;
+    justify-self: center;
 }
 
 .control-btns-container .increase-text-icon {
@@ -234,33 +242,50 @@ footer {
 }
 
 .control-btns-container .switch-line-icon {
+    background-image: linear-gradient(-38deg, #66c4dc 0%, #40b1ce 50%, #0c98bb 100%);
     grid-column: 3 / span 1;
     grid-row: 2 / span 1;
+    color: white;
 }
 
 .control-btns-container .delete-line-icon {
+    background-image: linear-gradient(-38deg, #cf1d37 0%, #cf1d37 1%, #f05036 100%);
     grid-column: 5 / span 1;
     grid-row: 2 / span 1;
 }
 
 .control-btns-container .add-line-icon {
+    background-image: linear-gradient(-38deg, #42eb5c 0%, #37b34a 100%);
     grid-column: 4 / span 1;
     grid-row: 2 / span 1;
 }
 
 .control-btns-container .download-icon {
+    background-color: #8f44bb;
     grid-column: 3 / span 1;
     grid-row: 5 / span 1;
 }
 
 .control-btns-container .save-icon {
+    background-color: #1e7cd3;
     grid-column: 4 / span 1;
     grid-row: 5 / span 1;
+}
+
+.control-btns-container .text-color-icon {
+    grid-column: 5 / span 1;
+    grid-row: 3 / span 1;
 }
 
 .editor-container .control-btns-container img {
     width: 1.25rem;
     height: 1.25rem;
+}
+
+#my-canvas {
+    border-radius: 30px;
+    border: 6px solid rgba(235, 238, 243, 0.09);
+    margin: 0 22px;
 }
 
 /* About */
@@ -269,14 +294,30 @@ footer {
     color: white;
     background-color: #383b42;
     font-family: Poppins;
-    font-size: 1.312irem;
+    font-size: 1.312rem;
     text-align: center;
+    width: 50%;
+    margin: 20px auto;
+    border-radius: 14px;
 }
 
 .about-image {
     width: 15rem;
     height: 15rem;
     border-radius: 50%;
+}
+
+.about-card .team-member h4 {
+    margin-bottom: 0;
+    font-size: 1.6rem;
+}
+
+.about-card .team-member title {
+    margin-top: 0;
+}
+
+#about .about-description {
+    width: 41.875rem;
 }
 
 /*screen*/
@@ -297,6 +338,21 @@ footer {
 body.menu-open .screen {
     visibility: visible;
     opacity: 0.7;
+}
+
+/* Saved Meme Gallery */
+
+#memes {
+    color: white;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 1.312rem;
+}
+
+#memes .memes-grid-container img {
+    height: 250px;
+    width: 250px;
+    cursor: auto;
 }
 
 /* Helpers */
@@ -335,11 +391,16 @@ body.menu-open .screen {
         height: 50px;
         font-size: 1.062rem;
         border-radius: 50%;
+        position: absolute;
+        right: 15px;
+        top: 7px;
     }
 
     .header-container {
         height: 70px;
+        width: 100%;
         margin: 0;
+        margin-bottom: 17px;
         border-radius: 0;
     }
 
@@ -350,10 +411,9 @@ body.menu-open .screen {
         flex-direction: column;
         top: 68px;
         right: 0;
-        height: 28vh;
         width: 100%;
         text-align: center;
-        transform: translateY(-130%);
+        transform: translateY(-180%);
         transition: transform .8s;
     }
 
@@ -388,9 +448,11 @@ body.menu-open .screen {
 
     .main-section .grid-container .img {
         width: 200px;
-        height: 173px;
+        height: 200px;
         object-fit: cover;
         border-radius: 15px;
+        align-self: center;
+        justify-self: center;
     }
 
     .grid-container {
@@ -401,5 +463,37 @@ body.menu-open .screen {
 
     .editor-container .editor {
         flex-direction: column;
+        text-align: center;
+    }
+
+    .control-btns-container {
+        width: 100vw;
+        grid-template-rows: repeat(5, 1fr);
+        gap: 0;
+    }
+
+    #my-canvas {
+        width: 90vw;
+    }
+}
+
+@media (max-width: 420px) {
+    .grid-container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .header-container .main-nav {
+        top: 58px;
+        right: 0;
+        /* height: 28vh; */
+        width: 100%;
+        text-align: center;
+        transform: translateY(-180%);
+        transition: transform .8s;
+    }
+
+    #about {
+        font-size: 1.312rem;
+        width: 80%;
     }
 }

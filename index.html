@@ -14,6 +14,9 @@
             <div class="logo flex">
                 MEMEGEN
             </div>
+            <button class="hamburger-sign" onclick="toggleMenu()" hidden>☰</button>
+            <div class="screen" onclick="toggleMenu()"></div>
+
             <nav id="nav-menu" class="nav-menu-container">
                 <ul class="main-nav clean-list flex">
                     <li>
@@ -26,8 +29,6 @@
                         <a href="#about">About</a>
                     </li>
                 </ul>
-                <button class="hamburger-sign" onclick="toggleMenu()" hidden>☰</button>
-                <div class="screen" onclick="toggleMenu()"></div>
             </nav>
         </div>
     </header>
@@ -43,7 +44,7 @@
         <section class="editor-container" id="editor">
             <div class="editor flex">
                 <div class="canvas-container">
-                    <canvas id="my-canvas" height="500" width="500"></canvas>
+                    <canvas id="my-canvas" height="450" width="450"></canvas>
                 </div>
                 <div class="control-btns-container grid">
                     <label for="user-text"></label>
@@ -65,8 +66,21 @@
                     <button class="icon download-icon" onclick="onDownloadImg()"><a><img
                                 src="./imgs/download.svg"></a></button>
                     <button class="icon save-icon" onclick="onSaveMeme()"><a><img src="./imgs/save.svg"></a></button>
+                    <!-- 
+                    <label for="text-color"><img src="./icons/paint-board-and-brush.png"></label>
+                    <input type="color" id="text-color" name="text-color" onchange="onChangeTextColor(this.value)" /> -->
+
+                    <!-- <button class="icon text-color-icon"><label for="text-color" onclick="onClickTextColorPallete()">
+                            <img src="./icons/paint-board-and-brush.png"></label></button>
+                    <input type="color" id="text-color" name="text-color" class="hide"
+                        onchange="onChangeTextColor(this.value)" /> -->
+
+                    <!-- <button class="icon text-color-icon"><label for="text-color" onclick="onClickingColorPallete()"><img
+                                src="./icons/paint-board-and-brush.png"></label>
+                        <input type="color" id="text-color" name="text-color" value="#ffffff" class="hide"
+                            onchange="onChangeTextColor(this.value)" /></button> -->
+
                 </div>
-            </div>
         </section>
 
         <!-- Saved Memes -->
@@ -79,7 +93,7 @@
                 <div class="team-member">
                     <img class="about-image" src="./imgs/me.jpg">
                     <h4>Shimrit Herbst</h4>
-                    <p class="Title">Projects Manager</p>
+                    <p class="title">Projects Manager</p>
                 </div>
             </div>
             <div class="flex align-center">
