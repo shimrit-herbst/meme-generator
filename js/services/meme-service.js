@@ -4,6 +4,9 @@ const STORAGE_KEY = 'savedMemesDB';
 const DEFAULT_FILL_COLOR = '#ffffff';
 const DEFAULT_STROKE_COLOR = '#000000';
 const DEFAULT_ALIGN = 'center';
+const FOCUSED_LINE_BLUR = 12;
+const UNFOCUSED_LINE_BLUR = 0;
+
 
 var gMemeNextId = 1;
 var gImgs = getImages();
@@ -31,17 +34,21 @@ function loadSavedMemes() {
     _loadMemesFromStorage();
 }
 
-function addNewLine() {
-    var newLine = {
+function _createLine(posY, shadowBlur) {
+    return {
         text: '',
         fontSize: 48,
         align: DEFAULT_ALIGN,
         strokeColor: DEFAULT_STROKE_COLOR,
         fillColor: DEFAULT_FILL_COLOR,
-        posY: 250,
+        posY,
         shadowColor: 'white',
-        shadowBlur: 12,
+        shadowBlur,
     };
+}
+
+function addNewLine() {
+    var newLine = _createLine(250, FOCUSED_LINE_BLUR);
     gMeme.lines.push(newLine);
     var lastIdx = gMeme.lines.length - 1;
     switchSelectedLine(lastIdx);
@@ -64,7 +71,7 @@ function switchSelectedLine(newSelectedIdx) {
         gMeme.selectedLineIdx = 0;
 
     for (let i = 0; i < gMeme.lines.length; i++) {
-        gMeme.lines[i].shadowBlur = (i === gMeme.selectedLineIdx) ? 12 : 0;
+        gMeme.lines[i].shadowBlur = (i === gMeme.selectedLineIdx) ? FOCUSED_LINE_BLUR : UNFOCUSED_LINE_BLUR;
     }
 }
 
@@ -111,26 +118,8 @@ function initMeme(imgId) {
         selectedImgId: imgId,
         selectedLineIdx: 0,
         lines: [
-            {
-                text: '',
-                fontSize: 48,
-                align: DEFAULT_ALIGN,
-                strokeColor: DEFAULT_STROKE_COLOR,
-                fillColor: DEFAULT_FILL_COLOR,
-                posY: 50,
-                shadowColor: 'white',
-                shadowBlur: 12,
-            },
-            {
-                text: '',
-                fontSize: 48,
-                align: DEFAULT_ALIGN,
-                strokeColor: DEFAULT_STROKE_COLOR,
-                fillColor: DEFAULT_FILL_COLOR,
-                posY: 420,
-                shadowColor: 'white',
-                shadowBlur: 0,
-            }
+            _createLine(50, FOCUSED_LINE_BLUR),
+            _createLine(420, UNFOCUSED_LINE_BLUR)
         ]
     }
 }

@@ -81,7 +81,7 @@ function renderGallery() {
 
 function onSelectImage(imageId) {
     initMeme(imageId);
-    renderTextInput();
+    renderLinePrefs();
     renderCanvas();
 }
 
