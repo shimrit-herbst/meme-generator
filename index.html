@@ -50,22 +50,40 @@
                     <label for="user-text"></label>
                     <input type="text" id="user-text" name="user-text" placeholder="Write your text here" required
                         oninput="onUserTextInput(this.value)" />
+
                     <button class="icon increase-text-icon" onclick="onChangeFontSize(2)"><img
                             src="./icons/increase font - icon.png" /></button>
+
                     <button class="icon decrease-text-icon" onclick="onChangeFontSize(-2)"><img
                             src="./icons/decrease font - icon.png" /></button>
+
                     <button class="icon down-arrow-icon" onclick="onChangeTextPosY(3)"><img
                             src="./imgs/down-arrow.svg"></button>
+
                     <button class="icon up-arrow-icon" onclick="onChangeTextPosY(-3)"><img
                             src="./imgs/long-arrow-pointing-up.svg"></button>
+
                     <button class="icon switch-line-icon" onclick="onSwitchLine()"><img
                             src="./icons/up-and-down-opposite-double-arrows-side-by-side.png"></button>
+
                     <button class="icon delete-line-icon" onclick="onDeleteLine()"><img
                             src="./icons/trash.png"></button>
+
                     <button class="icon add-line-icon" onclick="onAddLine()"><img src="./icons/add.png"></button>
+
                     <button class="icon download-icon" onclick="onDownloadImg()"><a><img
                                 src="./imgs/download.svg"></a></button>
+
                     <button class="icon save-icon" onclick="onSaveMeme()"><a><img src="./imgs/save.svg"></a></button>
+
+                    <button class="icon align-left-icon" onclick="onChangeAlign('left')"><img
+                            src="./icons/align-to-left.png" /></button>
+
+                    <button class="icon align-center-icon" onclick="onChangeAlign('center')"><img
+                            src="./icons/center-text-alignment.png" /></button>
+
+                    <button class="icon align-right-icon" onclick="onChangeAlign('right')"><img
+                            src="./icons/align-to-right.png" /></button>
                     <!-- 
                     <label for="text-color"><img src="./icons/paint-board-and-brush.png"></label>
                     <input type="color" id="text-color" name="text-color" onchange="onChangeTextColor(this.value)" /> -->

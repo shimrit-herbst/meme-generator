@@ -198,7 +198,7 @@ footer {
     background-color: #383b42;
     border-radius: 30px;
     padding-top: 10px;
-    height: 452px;
+    height: fit-content;
 }
 
 #user-text {
@@ -222,54 +222,71 @@ footer {
 }
 
 .control-btns-container .increase-text-icon {
-    grid-column: 3 / span 1;
+    grid-column: 2 / span 1;
     grid-row: 3 / span 1;
 }
 
 .control-btns-container .decrease-text-icon {
+    grid-column: 3 / span 1;
+    grid-row: 3 / span 1;
+}
+
+.control-btns-container .align-left-icon {
     grid-column: 4 / span 1;
     grid-row: 3 / span 1;
 }
 
+.control-btns-container .align-center-icon {
+    grid-column: 5 / span 1;
+    grid-row: 3 / span 1;
+}
+
+.control-btns-container .align-right-icon {
+    grid-column: 6 / span 1;
+    grid-row: 3 / span 1;
+}
+
 .control-btns-container .down-arrow-icon {
-    grid-column: 3 / span 1;
-    grid-row: 4 / span 1;
+    grid-column: 2 / span 1;
+    grid-row: 2 / span 1;
 }
 
 .control-btns-container .up-arrow-icon {
-    grid-column: 4 / span 1;
-    grid-row: 4 / span 1;
+    grid-column: 3 / span 1;
+    grid-row: 2 / span 1;
 }
 
 .control-btns-container .switch-line-icon {
     background-image: linear-gradient(-38deg, #66c4dc 0%, #40b1ce 50%, #0c98bb 100%);
-    grid-column: 3 / span 1;
+    grid-column: 4 / span 1;
     grid-row: 2 / span 1;
     color: white;
 }
 
 .control-btns-container .delete-line-icon {
     background-image: linear-gradient(-38deg, #cf1d37 0%, #cf1d37 1%, #f05036 100%);
-    grid-column: 5 / span 1;
+    grid-column: 6 / span 1;
     grid-row: 2 / span 1;
 }
 
 .control-btns-container .add-line-icon {
     background-image: linear-gradient(-38deg, #42eb5c 0%, #37b34a 100%);
-    grid-column: 4 / span 1;
+    grid-column: 5 / span 1;
     grid-row: 2 / span 1;
 }
 
 .control-btns-container .download-icon {
     background-color: #8f44bb;
-    grid-column: 3 / span 1;
+    grid-column: 2 / span 2;
     grid-row: 5 / span 1;
+    width: 107px;
 }
 
 .control-btns-container .save-icon {
     background-color: #1e7cd3;
-    grid-column: 4 / span 1;
+    grid-column: 5 / span 2;
     grid-row: 5 / span 1;
+    width: 107px;
 }
 
 .control-btns-container .text-color-icon {
@@ -469,9 +486,67 @@ body.menu-open .screen {
     }
 
     .control-btns-container {
-        width: 100vw;
-        grid-template-rows: repeat(5, 1fr);
-        gap: 0;
+        width: 93vw;
+        grid-template-rows: repeat(4, 1fr);
+        gap: 0.75rem;
+        padding: 10px 0;
+        height: fit-content;
+        margin-left: 22px;
+        margin-right: 0;
+        margin-top: 12px;
+    }
+
+    .control-btns-container .increase-text-icon {
+        grid-column: 2 / span 1;
+        grid-row: 3 / span 1;
+    }
+
+    .control-btns-container .decrease-text-icon {
+        grid-column: 3 / span 1;
+        grid-row: 3 / span 1;
+    }
+
+    .control-btns-container .down-arrow-icon {
+        grid-column: 3 / span 1;
+        grid-row: 4 / span 1;
+    }
+
+    .control-btns-container .up-arrow-icon {
+        grid-column: 2 / span 1;
+        grid-row: 4 / span 1;
+    }
+
+    .control-btns-container .switch-line-icon {
+        background-image: linear-gradient(-38deg, #66c4dc 0%, #40b1ce 50%, #0c98bb 100%);
+        grid-column: 2 / span 1;
+        grid-row: 2 / span 1;
+        color: white;
+    }
+
+    .control-btns-container .delete-line-icon {
+        background-image: linear-gradient(-38deg, #cf1d37 0%, #cf1d37 1%, #f05036 100%);
+        grid-column: 4 / span 1;
+        grid-row: 2 / span 1;
+    }
+
+    .control-btns-container .add-line-icon {
+        background-image: linear-gradient(-38deg, #42eb5c 0%, #37b34a 100%);
+        grid-column: 3 / span 1;
+        grid-row: 2 / span 1;
+    }
+
+    .control-btns-container .download-icon {
+        background-color: #8f44bb;
+        grid-column: 5 / span 1;
+        grid-row: 2 / span 1;
+        width: unset;
+    }
+
+    .control-btns-container .save-icon {
+        background-color: #1e7cd3;
+        grid-column: 6 / span 1;
+        grid-row: 2 / span 1;
+        width: unset;
     }
 
     #my-canvas {

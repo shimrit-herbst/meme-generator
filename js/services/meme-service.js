@@ -71,15 +71,22 @@ function changeTextPosY(val) {
     return gMeme.lines[gMeme.selectedLineIdx].posY;
 }
 
-function setTextColor(color) {
-    gMeme.lines[gMeme.selectedLineIdx].fillColor = color;
-    return gMeme.lines[gMeme.selectedLineIdx].fillColor;
+function alignChange(align, txtWidth, gCanvas) { // QUESTION: how can we do this without gCanvas?
+    var line = gMeme.lines[gMeme.selectedLineIdx];
+    if (align === 'left') line.posX = (txtWidth / 2) + 2;
+    if (align === 'right') line.posX = (gCanvas.width - txtWidth / 2) - 2;
+    if (align === 'center') line.posX = gCanvas.width / 2;
 }
 
-function setTextBorderColor(color){
-    gMeme.lines[gMeme.selectedLineIdx].strokeColor = color;
-    return gMeme.lines[gMeme.selectedLineIdx].strokeColor;
-}
+// function setTextColor(color) {
+//     gMeme.lines[gMeme.selectedLineIdx].fillColor = color;
+//     return gMeme.lines[gMeme.selectedLineIdx].fillColor;
+// }
+
+// function setTextBorderColor(color){
+//     gMeme.lines[gMeme.selectedLineIdx].strokeColor = color;
+//     return gMeme.lines[gMeme.selectedLineIdx].strokeColor;
+// }
 
 function getMeme() {
     return gMeme;

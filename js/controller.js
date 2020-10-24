@@ -111,6 +111,14 @@ function onAddLine() {
     renderCanvas();
 }
 
+function onChangeAlign(align) {
+    var meme = getMeme();
+    var line = meme.lines[meme.selectedLineIdx];
+    var txtWidth = gCtx.measureText(line.txt).width;
+    alignChange(align, txtWidth, gCanvas);
+    renderCanvas();
+}
+
 function onDownloadImg() {
     // create an "off-screen" anchor tag
     var lnk = document.createElement('a');
@@ -135,6 +143,30 @@ function onDownloadImg() {
     }
 }
 
+function _getBase64Image() {
+    return gCanvas.toDataURL("image/png");
+}
+
+function onSaveMeme() {
+    saveMeme(_getBase64Image());
+    window.location.href = "#memes";
+    renderSavedMemes();
+}
+
+function checkIfMoblie() {
+    var width = window.matchMedia("(max-width: 520px)");
+    // If media query matches
+    var isMobile = (width.matches) ? true : false;
+    return isMobile;
+}
+
+function toggleMenu() {
+    if (!checkIfMoblie()) return;
+    document.body.classList.toggle('menu-open');
+}
+
+
+
 // function onClickTextColorPallete() {
 //     document.querySelector('#text-color').click();
 // }
@@ -154,26 +186,3 @@ function onDownloadImg() {
 //     setTextBorderColor(color);
 //     renderCanvas();
 // }
-
-function _getBase64Image() {
-    return gCanvas.toDataURL("image/png");
-}
-
-function onSaveMeme() {
-    saveMeme(_getBase64Image());
-    window.location.href = "#memes";
-    renderSavedMemes();
-}
-
-function checkIfMoblie() {
-    var width = window.matchMedia("(max-width: 520px)");
-    // If media query matches
-    var isMobile = (width.matches) ? true : false;
-    return isMobile;
-}
-
-function toggleMenu() {
-    if (!checkIfMoblie()) return; // Call listener function at run time
-
-    document.body.classList.toggle('menu-open');
-}
