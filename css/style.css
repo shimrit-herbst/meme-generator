@@ -312,12 +312,14 @@ footer {
     font-size: 1.6rem;
 }
 
-.about-card .team-member title {
-    margin-top: 0;
+.about-card .team-member .title {
+    margin: 0;
 }
 
 #about .about-description {
     width: 41.875rem;
+    padding: 12px 21px;
+    text-align: start;
 }
 
 /*screen*/

@@ -13,7 +13,7 @@ function onInit() {
 }
 
 function renderSavedMemes() {
-    var fullInnerHtml = '<h2>No saved memes to show... Go and create your own meme! </h2>';
+    var fullInnerHtml = '<h2>There are no saved memes to show... Go and create your own memes! </h2>';
     var savedMemes = getSavedMemes();
     if (savedMemes.length > 0) {
         var strHtmls = savedMemes.map((savedMeme) => {
@@ -165,6 +165,15 @@ function onSaveMeme() {
     renderSavedMemes();
 }
 
+function checkIfMoblie() {
+    var width = window.matchMedia("(max-width: 520px)");
+    // If media query matches
+    var isMobile = (width.matches) ? true : false;
+    return isMobile;
+}
+
 function toggleMenu() {
+    if (!checkIfMoblie()) return; // Call listener function at run time
+
     document.body.classList.toggle('menu-open');
 }
