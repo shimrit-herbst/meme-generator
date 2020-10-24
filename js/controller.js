@@ -1,5 +1,7 @@
 'use strict'
 
+const CANVAS_TEXT_PADDING = 20;
+
 var gCanvas = document.querySelector('#my-canvas');
 var gCtx = gCanvas.getContext('2d');
 
@@ -43,13 +45,23 @@ function drawText(line) {
 
     gCtx.strokeStyle = line.strokeColor;
     gCtx.font = line.fontSize + 'px Impact';
-    gCtx.textAlign = line.align;
     gCtx.shadowColor = line.shadowColor;
     gCtx.shadowBlur = line.shadowBlur;
     gCtx.lineWidth = '3';
-    gCtx.strokeText(text, line.posX, line.posY);
+
+    gCtx.textAlign = line.align;
+    var posX = _calcPosX(line);
+
+    gCtx.strokeText(text, posX, line.posY);
     gCtx.fillStyle = line.fillColor;
-    gCtx.fillText(text, line.posX, line.posY);
+    gCtx.fillText(text, posX, line.posY);
+
+}
+
+function _calcPosX(line) {
+    if (line.align === 'left') return CANVAS_TEXT_PADDING;
+    if (line.align === 'right') return gCanvas.width - CANVAS_TEXT_PADDING;
+    if (line.align === 'center') return gCanvas.width / 2;
 }
 
 function onUserTextInput(textInput) {
@@ -138,10 +150,7 @@ function onAddLine() {
 }
 
 function onChangeAlign(align) {
-    var meme = getMeme();
-    var line = meme.lines[meme.selectedLineIdx];
-    var txtWidth = gCtx.measureText(line.txt).width;
-    alignChange(align, txtWidth, gCanvas);
+    alignChange(align);
     renderCanvas();
 }
 

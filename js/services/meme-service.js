@@ -3,17 +3,18 @@
 const STORAGE_KEY = 'savedMemesDB';
 const DEFAULT_FILL_COLOR = '#ffffff';
 const DEFAULT_STROKE_COLOR = '#000000';
+const DEFAULT_ALIGN = 'center';
 
 var gMemeNextId = 1;
 var gImgs = getImages();
 var gMeme;
 var gSavedMemes = [];
 
-function getDefaultFillColor(){
+function getDefaultFillColor() {
     return DEFAULT_FILL_COLOR;
 }
 
-function getDefaultStrokeColor(){
+function getDefaultStrokeColor() {
     return DEFAULT_STROKE_COLOR;
 }
 
@@ -34,10 +35,9 @@ function addNewLine() {
     var newLine = {
         text: '',
         fontSize: 48,
-        align: 'center',
+        align: DEFAULT_ALIGN,
         strokeColor: DEFAULT_STROKE_COLOR,
         fillColor: DEFAULT_FILL_COLOR,
-        posX: 250,
         posY: 250,
         shadowColor: 'white',
         shadowBlur: 12,
@@ -78,12 +78,8 @@ function changeTextPosY(val) {
     return gMeme.lines[gMeme.selectedLineIdx].posY;
 }
 
-function alignChange(align, txtWidth, gCanvas) { // QUESTION: how can we do this without gCanvas?
-    var line = gMeme.lines[gMeme.selectedLineIdx];
-    if (align === 'left') line.posX = txtWidth / 2;
-    if (align === 'right') line.posX = gCanvas.width - txtWidth / 2;
-    if (align === 'center') line.posX = gCanvas.width / 2;
-    // line.align = align;   // how should align be changed?
+function alignChange(align) { // 
+    gMeme.lines[gMeme.selectedLineIdx].align = align;
 }
 
 function changeStrokeColor(color) {
@@ -118,10 +114,9 @@ function initMeme(imgId) {
             {
                 text: '',
                 fontSize: 48,
-                align: 'center',
+                align: DEFAULT_ALIGN,
                 strokeColor: DEFAULT_STROKE_COLOR,
                 fillColor: DEFAULT_FILL_COLOR,
-                posX: 220,
                 posY: 50,
                 shadowColor: 'white',
                 shadowBlur: 12,
@@ -129,11 +124,10 @@ function initMeme(imgId) {
             {
                 text: '',
                 fontSize: 48,
-                align: 'center',
+                align: DEFAULT_ALIGN,
                 strokeColor: DEFAULT_STROKE_COLOR,
                 fillColor: DEFAULT_FILL_COLOR,
-                posX: 220,
-                posY: 432,
+                posY: 420,
                 shadowColor: 'white',
                 shadowBlur: 0,
             }
