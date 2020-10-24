@@ -13,7 +13,6 @@ function _createImage(url) {
     return {
         id: gImgNextId++,
         url,
-        // keywords: ['happy'],
     }
 }
 

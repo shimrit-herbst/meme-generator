@@ -7,7 +7,6 @@ const DEFAULT_ALIGN = 'center';
 const FOCUSED_LINE_BLUR = 12;
 const UNFOCUSED_LINE_BLUR = 0;
 
-
 var gMemeNextId = 1;
 var gImgs = getImages();
 var gMeme;
@@ -34,19 +33,6 @@ function loadSavedMemes() {
     _loadMemesFromStorage();
 }
 
-function _createLine(posY, shadowBlur) {
-    return {
-        text: '',
-        fontSize: 48,
-        align: DEFAULT_ALIGN,
-        strokeColor: DEFAULT_STROKE_COLOR,
-        fillColor: DEFAULT_FILL_COLOR,
-        posY,
-        shadowColor: 'white',
-        shadowBlur,
-    };
-}
-
 function addNewLine() {
     var newLine = _createLine(250, FOCUSED_LINE_BLUR);
     gMeme.lines.push(newLine);
@@ -60,7 +46,6 @@ function deleteSelectedLine() {
 }
 
 function switchSelectedLine(newSelectedIdx) {
-    // Switch selected line
     if (newSelectedIdx !== undefined) {
         gMeme.selectedLineIdx = newSelectedIdx;
     }
@@ -122,6 +107,19 @@ function initMeme(imgId) {
             _createLine(420, UNFOCUSED_LINE_BLUR)
         ]
     }
+}
+
+function _createLine(posY, shadowBlur) {
+    return {
+        text: '',
+        fontSize: 48,
+        align: DEFAULT_ALIGN,
+        strokeColor: DEFAULT_STROKE_COLOR,
+        fillColor: DEFAULT_FILL_COLOR,
+        posY,
+        shadowColor: 'white',
+        shadowBlur,
+    };
 }
 
 function _saveMemesToStorage() {

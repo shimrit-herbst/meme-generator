@@ -58,12 +58,6 @@ function drawText(line) {
 
 }
 
-function _calcPosX(line) {
-    if (line.align === 'left') return CANVAS_TEXT_PADDING;
-    if (line.align === 'right') return gCanvas.width - CANVAS_TEXT_PADDING;
-    if (line.align === 'center') return gCanvas.width / 2;
-}
-
 function onUserTextInput(textInput) {
     var meme = getMeme();
     meme.lines[meme.selectedLineIdx].text = textInput;
@@ -155,35 +149,35 @@ function onChangeAlign(align) {
 }
 
 function onDownloadImg() {
-    // create an "off-screen" anchor tag
+    // Create an "off-screen" anchor tag
     var lnk = document.createElement('a');
-
-    // the key here is to set the download attribute of the a tag
     lnk.download = 'meme.png';
 
-    // convert canvas content to data-uri for link. When download
+    // Convert canvas content to data-uri for link. When download
     // attribute is set the content pointed to by link will be
     // pushed as "download" in HTML5 capable browsers
     lnk.href = gCanvas.toDataURL("image/png;base64");
 
-    // create a "fake" click-event to trigger the download
+    // Create a "fake" click-event to trigger the download
     if (document.createEvent) {
         var event = document.createEvent("MouseEvents");
-        event.initMouseEvent("click", true, true, window,
+        event.initMouseEvent(
+            "click", true, true, window,
             0, 0, 0, 0, 0, false, false, false,
-            false, 0, null);
+            false, 0, null,
+        );
         lnk.dispatchEvent(event);
     } else if (lnk.fireEvent) {
         lnk.fireEvent("onclick");
     }
 }
 
-function _getBase64Image() {
+function getBase64Image() {
     return gCanvas.toDataURL("image/png");
 }
 
 function onSaveMeme() {
-    saveMeme(_getBase64Image());
+    saveMeme(getBase64Image());
     window.location.href = "#memes";
     renderSavedMemes();
 }
@@ -209,4 +203,10 @@ function onChangeStrokeColor(color) {
 function onChangeFillColor(color) {
     changeFillColor(color);
     renderCanvas();
+}
+
+function _calcPosX(line) {
+    if (line.align === 'left') return CANVAS_TEXT_PADDING;
+    if (line.align === 'right') return gCanvas.width - CANVAS_TEXT_PADDING;
+    if (line.align === 'center') return gCanvas.width / 2;
 }
