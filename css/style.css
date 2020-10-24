@@ -69,7 +69,6 @@ section:target {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* height: 130px; */
     width: 111px;
     border-radius: 15px;
     margin: 20px;
@@ -136,7 +135,6 @@ footer {
     left: 0;
     bottom: 0;
     width: 100%;
-    /* height: 60px; */
     background-color: lightgray;
     color: black;
     text-align: center;
@@ -152,7 +150,6 @@ footer {
 /* Images-Gallery */
 
 .images-grid {
-    /* display: flex; */
     background-color: #383b42;
     border-radius: 10px;
     margin: 20px auto;
@@ -186,7 +183,6 @@ footer {
     width: fit-content;
     height: fit-content;
     margin: 15px auto;
-    /* background-color: #383b42; */
     border-radius: 10px;
 }
 
@@ -575,7 +571,6 @@ body.menu-open .screen {
     .header-container .main-nav {
         top: 58px;
         right: 0;
-        /* height: 28vh; */
         width: 100%;
         text-align: center;
         transform: translateY(-180%);
