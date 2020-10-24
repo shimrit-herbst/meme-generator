@@ -83,6 +83,26 @@ function onChangeTextPosY(val) {
     renderCanvas();
 }
 
+function renderFillColorButton() {
+    var elFillColorButton = document.querySelector('#fill-color');
+    var meme = getMeme();
+    var newValue = getDefaultFillColor();
+    if (meme.lines[meme.selectedLineIdx]) {
+        newValue = meme.lines[meme.selectedLineIdx].fillColor;
+    }
+    elFillColorButton.value = newValue;
+}
+
+function renderStrokeColorButton() {
+    var elStrokeColorButton = document.querySelector('#stroke-color');
+    var meme = getMeme();
+    var newValue = getDefaultStrokeColor();
+    if (meme.lines[meme.selectedLineIdx]) {
+        newValue = meme.lines[meme.selectedLineIdx].strokeColor;
+    }
+    elStrokeColorButton.value = newValue;
+}
+
 function renderTextInput() {
     var elTextInput = document.querySelector('#user-text');
     var meme = getMeme();
@@ -93,21 +113,27 @@ function renderTextInput() {
     elTextInput.value = newValue;
 }
 
+function renderLinePrefs() {
+    renderTextInput();
+    renderFillColorButton();
+    renderStrokeColorButton();
+}
+
 function onSwitchLine() {
     switchSelectedLine();
-    renderTextInput();
+    renderLinePrefs();
     renderCanvas();
 }
 
 function onDeleteLine() {
     deleteSelectedLine();
-    renderTextInput();
+    renderLinePrefs();
     renderCanvas();
 }
 
 function onAddLine() {
     addNewLine();
-    renderTextInput();
+    renderLinePrefs();
     renderCanvas();
 }
 
@@ -166,23 +192,12 @@ function toggleMenu() {
 }
 
 
+function onChangeStrokeColor(color) {
+    changeStrokeColor(color);
+    renderCanvas();
+}
 
-// function onClickTextColorPallete() {
-//     document.querySelector('#text-color').click();
-// }
-
-// function onChangeTextColor(color) {
-//     gCtx.fillStyle = color;
-//     setTextColor(color);
-//     renderCanvas();
-// }
-
-// function onClickTextBorderColorPallete() {
-//     document.querySelector('#stroke-color').click();
-// }
-
-// function onChangeTextBorderColor(color) {
-//     gCtx.strokeStyle = document.querySelector('#stroke-style').value;
-//     setTextBorderColor(color);
-//     renderCanvas();
-// }
+function onChangeFillColor(color) {
+    changeFillColor(color);
+    renderCanvas();
+}

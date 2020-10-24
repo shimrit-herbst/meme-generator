@@ -1,14 +1,21 @@
 'use strict'
 
 const STORAGE_KEY = 'savedMemesDB';
+const DEFAULT_FILL_COLOR = '#ffffff';
+const DEFAULT_STROKE_COLOR = '#000000';
 
-
-// var gKeywords = { 'happy': 12, 'funny puk': 1 };
 var gMemeNextId = 1;
 var gImgs = getImages();
 var gMeme;
 var gSavedMemes = [];
 
+function getDefaultFillColor(){
+    return DEFAULT_FILL_COLOR;
+}
+
+function getDefaultStrokeColor(){
+    return DEFAULT_STROKE_COLOR;
+}
 
 function saveMeme(base64ImgData) {
     gSavedMemes.push(base64ImgData);
@@ -28,8 +35,8 @@ function addNewLine() {
         text: '',
         fontSize: 48,
         align: 'center',
-        strokeColor: 'black',
-        fillColor: 'white',
+        strokeColor: DEFAULT_STROKE_COLOR,
+        fillColor: DEFAULT_FILL_COLOR,
         posX: 250,
         posY: 250,
         shadowColor: 'white',
@@ -73,20 +80,21 @@ function changeTextPosY(val) {
 
 function alignChange(align, txtWidth, gCanvas) { // QUESTION: how can we do this without gCanvas?
     var line = gMeme.lines[gMeme.selectedLineIdx];
-    if (align === 'left') line.posX = (txtWidth / 2) + 2;
-    if (align === 'right') line.posX = (gCanvas.width - txtWidth / 2) - 2;
+    if (align === 'left') line.posX = txtWidth / 2;
+    if (align === 'right') line.posX = gCanvas.width - txtWidth / 2;
     if (align === 'center') line.posX = gCanvas.width / 2;
+    // line.align = align;   // how should align be changed?
 }
 
-// function setTextColor(color) {
-//     gMeme.lines[gMeme.selectedLineIdx].fillColor = color;
-//     return gMeme.lines[gMeme.selectedLineIdx].fillColor;
-// }
+function changeStrokeColor(color) {
+    gMeme.lines[gMeme.selectedLineIdx].strokeColor = color;
+    return gMeme.lines[gMeme.selectedLineIdx].strokeColor;
+}
 
-// function setTextBorderColor(color){
-//     gMeme.lines[gMeme.selectedLineIdx].strokeColor = color;
-//     return gMeme.lines[gMeme.selectedLineIdx].strokeColor;
-// }
+function changeFillColor(color) {
+    gMeme.lines[gMeme.selectedLineIdx].fillColor = color;
+    return gMeme.lines[gMeme.selectedLineIdx].fillColor;
+}
 
 function getMeme() {
     return gMeme;
@@ -111,8 +119,8 @@ function initMeme(imgId) {
                 text: '',
                 fontSize: 48,
                 align: 'center',
-                strokeColor: 'black',
-                fillColor: 'white',
+                strokeColor: DEFAULT_STROKE_COLOR,
+                fillColor: DEFAULT_FILL_COLOR,
                 posX: 220,
                 posY: 50,
                 shadowColor: 'white',
@@ -122,8 +130,8 @@ function initMeme(imgId) {
                 text: '',
                 fontSize: 48,
                 align: 'center',
-                strokeColor: 'black',
-                fillColor: 'white',
+                strokeColor: DEFAULT_STROKE_COLOR,
+                fillColor: DEFAULT_FILL_COLOR,
                 posX: 220,
                 posY: 432,
                 shadowColor: 'white',

@@ -84,20 +84,12 @@
 
                     <button class="icon align-right-icon" onclick="onChangeAlign('right')"><img
                             src="./icons/align-to-right.png" /></button>
-                    <!-- 
-                    <label for="text-color"><img src="./icons/paint-board-and-brush.png"></label>
-                    <input type="color" id="text-color" name="text-color" onchange="onChangeTextColor(this.value)" /> -->
 
-                    <!-- <button class="icon text-color-icon"><label for="text-color" onclick="onClickTextColorPallete()">
-                            <img src="./icons/paint-board-and-brush.png"></label></button>
-                    <input type="color" id="text-color" name="text-color" class="hide"
-                        onchange="onChangeTextColor(this.value)" /> -->
+                    <input class="icon stroke-color-icon" type="color" id="stroke-color" name="stroke-color"
+                        oninput="onChangeStrokeColor(this.value)" value="#000000" />
 
-                    <!-- <button class="icon text-color-icon"><label for="text-color" onclick="onClickingColorPallete()"><img
-                                src="./icons/paint-board-and-brush.png"></label>
-                        <input type="color" id="text-color" name="text-color" value="#ffffff" class="hide"
-                            onchange="onChangeTextColor(this.value)" /></button> -->
-
+                    <input class="icon fill-color-icon" type="color" id="fill-color" name="fill-color"
+                        oninput="onChangeFillColor(this.value)" value="#ffffff" />
                 </div>
         </section>
 
