@@ -51,44 +51,44 @@
                     <input type="text" id="user-text" name="user-text" placeholder="Write your text here" required
                         oninput="onUserTextInput(this.value)" />
 
-                    <button class="icon increase-text-icon" onclick="onChangeFontSize(2)"><img
+                    <button class="icon increase-text-icon" title="Increase font size" onclick="onChangeFontSize(2)"><img
                             src="./icons/increase font - icon.png" /></button>
 
-                    <button class="icon decrease-text-icon" onclick="onChangeFontSize(-2)"><img
+                    <button class="icon decrease-text-icon" title="Decrease font size" onclick="onChangeFontSize(-2)"><img
                             src="./icons/decrease font - icon.png" /></button>
 
-                    <button class="icon down-arrow-icon" onclick="onChangeTextPosY(3)"><img
+                    <button class="icon down-arrow-icon" title="Move line down" onclick="onChangeTextPosY(3)"><img
                             src="./imgs/down-arrow.svg"></button>
 
-                    <button class="icon up-arrow-icon" onclick="onChangeTextPosY(-3)"><img
+                    <button class="icon up-arrow-icon" title="Move line up" onclick="onChangeTextPosY(-3)"><img
                             src="./imgs/long-arrow-pointing-up.svg"></button>
 
-                    <button class="icon switch-line-icon" onclick="onSwitchLine()"><img
+                    <button class="icon switch-line-icon" title="Switch to select other line" onclick="onSwitchLine()"><img
                             src="./icons/up-and-down-opposite-double-arrows-side-by-side.png"></button>
 
-                    <button class="icon delete-line-icon" onclick="onDeleteLine()"><img
+                    <button class="icon delete-line-icon" title="Delete line" onclick="onDeleteLine()"><img
                             src="./icons/trash.png"></button>
 
-                    <button class="icon add-line-icon" onclick="onAddLine()"><img src="./icons/add.png"></button>
+                    <button class="icon add-line-icon" title="Add new line" onclick="onAddLine()"><img src="./icons/add.png"></button>
 
-                    <button class="icon download-icon" onclick="onDownloadImg()"><a><img
+                    <button class="icon download-icon" title="Download" onclick="onDownloadImg()"><a><img
                                 src="./imgs/download.svg"></a></button>
 
-                    <button class="icon save-icon" onclick="onSaveMeme()"><a><img src="./imgs/save.svg"></a></button>
+                    <button class="icon save-icon" title="Save" onclick="onSaveMeme()"><a><img src="./imgs/save.svg"></a></button>
 
-                    <button class="icon align-left-icon" onclick="onChangeAlign('left')"><img
+                    <button class="icon align-left-icon" title="Align left" onclick="onChangeAlign('left')"><img
                             src="./icons/align-to-left.png" /></button>
 
-                    <button class="icon align-center-icon" onclick="onChangeAlign('center')"><img
+                    <button class="icon align-center-icon" title="Align center" onclick="onChangeAlign('center')"><img
                             src="./icons/center-text-alignment.png" /></button>
 
-                    <button class="icon align-right-icon" onclick="onChangeAlign('right')"><img
+                    <button class="icon align-right-icon" title="Align right" onclick="onChangeAlign('right')"><img
                             src="./icons/align-to-right.png" /></button>
 
-                    <input class="icon stroke-color-icon" type="color" id="stroke-color" name="stroke-color"
+                    <input class="icon stroke-color-icon" title="Outline color" type="color" id="stroke-color" name="stroke-color"
                         oninput="onChangeStrokeColor(this.value)" value="#000000" />
 
-                    <input class="icon fill-color-icon" type="color" id="fill-color" name="fill-color"
+                    <input class="icon fill-color-icon" title="Text color" type="color" id="fill-color" name="fill-color"
                         oninput="onChangeFillColor(this.value)" value="#ffffff" />
                 </div>
         </section>
