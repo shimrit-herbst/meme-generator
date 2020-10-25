@@ -1,33 +1,3 @@
-@font-face {
-    font-family: 'Poppins';
-    src: url('../fonts/Poppins-Regular.ttf');
-}
-
-@font-face {
-    font-family: 'Countryside';
-    src: url('../fonts/Countryside\ Personal\ Use.ttf');
-}
-
-body {
-    margin: 0;
-    background-color: #22252c;
-}
-
-
-.hide {
-    display: none;
-}
-
-.grid {
-    display: grid;
-}
-
-img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-}
-
 /* Layout */
 
 .header-container {
@@ -119,15 +89,6 @@ section:target {
     opacity: 1;
 }
 
-.fa {
-    display: inline-block;
-    font-family: fontawesome;
-    font-size: inherit;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
 /* Footer*/
 
 footer {
@@ -160,8 +121,7 @@ footer {
 
 .grid-container {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-column-gap: 1.562rem;
-    grid-row-gap: 1.562rem;
+    grid-gap: 1.562rem;
     margin: 16px;
 }
 
@@ -220,7 +180,6 @@ footer {
     width: 3rem;
     border-radius: 10px;
     cursor: pointer;
-    /* align-self: center; */
     justify-self: center;
 }
 
@@ -391,31 +350,6 @@ body.menu-open .screen {
     cursor: auto;
 }
 
-/* Helpers */
-
-/* flex helpers */
-
-.flex {
-    display: flex;
-}
-
-.flex.space-between {
-    justify-content: space-between;
-}
-
-.flex.align-center {
-    align-items: center;
-    justify-content: center;
-}
-
-/* list-helpers */
-
-.clean-list {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
 @media (max-width: 520px) {
     .container .logo {
         padding-inline-start: 0.6rem;
@@ -492,7 +426,6 @@ body.menu-open .screen {
     }
 
     .grid-container {
-        /* grid-template-columns: repeat(2, 1fr); */
         grid-auto-rows: 1fr;
         padding: 10px;
     }

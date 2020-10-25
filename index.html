@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/fonts-and-basics.css">
+    <link rel="stylesheet" href="css/helpers.css">
+    <link rel="stylesheet" href="css/main.css">
     <title>Best Meme Generator</title>
 </head>
 
@@ -51,11 +53,11 @@
                     <input type="text" id="user-text" name="user-text" placeholder="Write your text here" required
                         oninput="onUserTextInput(this.value)" />
 
-                    <button class="icon increase-text-icon" title="Increase font size" onclick="onChangeFontSize(2)"><img
-                            src="./icons/increase font - icon.png" /></button>
+                    <button class="icon increase-text-icon" title="Increase font size"
+                        onclick="onChangeFontSize(2)"><img src="./icons/increase font - icon.png" /></button>
 
-                    <button class="icon decrease-text-icon" title="Decrease font size" onclick="onChangeFontSize(-2)"><img
-                            src="./icons/decrease font - icon.png" /></button>
+                    <button class="icon decrease-text-icon" title="Decrease font size"
+                        onclick="onChangeFontSize(-2)"><img src="./icons/decrease font - icon.png" /></button>
 
                     <button class="icon down-arrow-icon" title="Move line down" onclick="onChangeTextPosY(3)"><img
                             src="./imgs/down-arrow.svg"></button>
@@ -63,18 +65,21 @@
                     <button class="icon up-arrow-icon" title="Move line up" onclick="onChangeTextPosY(-3)"><img
                             src="./imgs/long-arrow-pointing-up.svg"></button>
 
-                    <button class="icon switch-line-icon" title="Switch to select other line" onclick="onSwitchLine()"><img
+                    <button class="icon switch-line-icon" title="Switch to select other line"
+                        onclick="onSwitchLine()"><img
                             src="./icons/up-and-down-opposite-double-arrows-side-by-side.png"></button>
 
                     <button class="icon delete-line-icon" title="Delete line" onclick="onDeleteLine()"><img
                             src="./icons/trash.png"></button>
 
-                    <button class="icon add-line-icon" title="Add new line" onclick="onAddLine()"><img src="./icons/add.png"></button>
+                    <button class="icon add-line-icon" title="Add new line" onclick="onAddLine()"><img
+                            src="./icons/add.png"></button>
 
                     <button class="icon download-icon" title="Download" onclick="onDownloadImg()"><a><img
                                 src="./imgs/download.svg"></a></button>
 
-                    <button class="icon save-icon" title="Save" onclick="onSaveMeme()"><a><img src="./imgs/save.svg"></a></button>
+                    <button class="icon save-icon" title="Save" onclick="onSaveMeme()"><a><img
+                                src="./imgs/save.svg"></a></button>
 
                     <button class="icon align-left-icon" title="Align left" onclick="onChangeAlign('left')"><img
                             src="./icons/align-to-left.png" /></button>
@@ -85,11 +90,11 @@
                     <button class="icon align-right-icon" title="Align right" onclick="onChangeAlign('right')"><img
                             src="./icons/align-to-right.png" /></button>
 
-                    <input class="icon stroke-color-icon" title="Outline color" type="color" id="stroke-color" name="stroke-color"
-                        oninput="onChangeStrokeColor(this.value)" value="#000000" />
+                    <input class="icon stroke-color-icon" title="Outline color" type="color" id="stroke-color"
+                        name="stroke-color" oninput="onChangeStrokeColor(this.value)" value="#000000" />
 
-                    <input class="icon fill-color-icon" title="Text color" type="color" id="fill-color" name="fill-color"
-                        oninput="onChangeFillColor(this.value)" value="#ffffff" />
+                    <input class="icon fill-color-icon" title="Text color" type="color" id="fill-color"
+                        name="fill-color" oninput="onChangeFillColor(this.value)" value="#ffffff" />
                 </div>
         </section>
 
