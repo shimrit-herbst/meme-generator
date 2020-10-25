@@ -416,15 +416,6 @@ body.menu-open .screen {
     padding: 0;
 }
 
-
-@media (max-width: 1064px) {
-    .editor-container .editor {
-        flex-direction: column;
-        text-align: center;
-    }
-}
-
-
 @media (max-width: 520px) {
     .container .logo {
         padding-inline-start: 0.6rem;
@@ -454,7 +445,7 @@ body.menu-open .screen {
         background-image: linear-gradient(-86deg, #33be6d 0%, #0c98b9 100%);
         position: fixed;
         flex-direction: column;
-        top: 68px;
+        top: 78px;
         right: 0;
         width: 100%;
         text-align: center;
@@ -586,7 +577,7 @@ body.menu-open .screen {
     }
 
     .header-container .main-nav {
-        top: 58px;
+        top: 67px;
         right: 0;
         width: 100%;
         text-align: center;
